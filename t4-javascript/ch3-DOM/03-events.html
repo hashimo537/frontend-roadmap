@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>イベント練習</title>
+</head>
+
+<body>
+    <button id="my-button">押してね</button>
+    <p id="count">クリック回数：0</p>
+
+    <input id="my-input" placeholder="何か入力">
+    <p id="preview">入力内容：</p>
+
+    <script>
+        const myButton = document.querySelector("#my-button");
+        const countText = document.querySelector("#count");
+        let count = 0;
+
+        function handleClick() {
+            count = count + 1;
+            countText.textContent = "クリック回数：" + count;
+        }
+        myButton.addEventListener("click", handleClick);
+
+        const input = document.querySelector("#my-input");
+        const preview = document.querySelector("#preview");
+
+        input.addEventListener("input", function (event) {
+            preview.textContent = "入力内容：" + event.target.value;
+            console.log(event);   // ← Consoleでeventの中身を開いてみる
+        });
+    </script>
+</body>
+
+</html>
