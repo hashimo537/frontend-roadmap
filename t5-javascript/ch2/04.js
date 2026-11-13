@@ -1,15 +1,15 @@
 async function fetchPosts() {
-    // ユーザーリストを表示するul要素を取得
+    // postを表示するdiv要素を取得
   const postsContainer = document.querySelector("#posts-container");
 
     try {
-        // 1. データを取得する
+        // 1. APIからデータを取得する
         const response = await fetch("https://jsonplaceholder.typicode.com/posts");
         const posts = await response.json();
     
-        // 2. 取得したユーザーデータの配列をループ処理
+        // 2. 取得した要素を１つずつ取り出して渡した関数を呼ぶ
         posts.forEach(post => {
-        // 3. 各ユーザーごとにli要素を生成
+        // 3. 各ポストごとに要素を生成
         //カード要素を作成
         const card = document.createElement("div");
         card.classList.add("post.-card");
